@@ -33,39 +33,31 @@ src/config: Berisi konfigurasi koneksi database PostgreSQL.
 src/models: Bertanggung jawab untuk semua query dan logika database (SQL).
 
 src/controllers: Bertindak sebagai "otak" yang mengelola alur request dan response.
-    
-    dosenController.js & mataKuliahController.js: Mengelola alur CRUD.
 
-    authController.js: Mengelola logika register dan login.
+    * dosenController.js & mataKuliahController.js: Mengelola alur CRUD.
+    * authController.js: Mengelola logika register dan login.
 
 src/routes: Mendefinisikan semua endpoint (URL) API.
 
-    dosenRoute.js & mataKuliahRoute.js: Mendefinisikan endpoint CRUD (terproteksi).
+    * dosenRoute.js & mataKuliahRoute.js: Mendefinisikan endpoint CRUD (terproteksi).
 
-    authRoutes.js: Mendefinisikan endpoint publik /auth/register dan /auth/login.
+    * authRoutes.js: Mendefinisikan endpoint publik /auth/register dan /auth/login.
 
 src/middleware:
 
-    logger.js, validator.js, errorHandler.js
+    * logger.js, validator.js, errorHandler.js
 
-    authMiddleware.js: Berisi logika authenticateToken.
+    * authMiddleware.js: Berisi logika authenticateToken.
 
 ### Hasil Uji Coba (Screenshots)
 
 Berikut adalah penjelasan untuk hasil uji coba yang dilakukan menggunakan Postman.
 
-*Output Logger* 
-
-![alt text](screenshot\image.png)
-
-Ini adalah output dari logger.js di terminal. Sesuai ketentuan, middleware ini berhasil mencatat ([LOG]) setiap request yang masuk ke server, lengkap dengan metode HTTP (POST, GET, PUT, DELETE) dan URL endpoint-nya.
-
-
 1. Registrasi Dosen Baru (Sukses)
 
 POST /api/auth/register
 
-![alt text](ss\1_image.png)
+![alt text](ss/1_image.png)
 
 Hasil pembuatan data dosen baru. Server merespons dengan status 201 Created dan mengembalikan data lengkap dosen yang baru dibuat berkat RETURNING *.
 
@@ -73,7 +65,7 @@ Hasil pembuatan data dosen baru. Server merespons dengan status 201 Created dan 
 
 POST /api/auth/login
 
-![alt text](ss\2_image.png)
+![alt text](ss/2_image.png)
 
 Hasil mendapatkan token yang akan digunakan untuk routes yang terproteksi dengan autentifikasi setelah berhasil login dengan benar
 
@@ -81,7 +73,7 @@ Hasil mendapatkan token yang akan digunakan untuk routes yang terproteksi dengan
 
 GET /api/dosen (Read All)
 
-![alt text](ss\3_image.png)
+![alt text](ss/3_image.png)
 
 Hasil gagal karena tidak menggunakan token di Header saat mengakses endpoint ini.
 
@@ -89,7 +81,7 @@ Hasil gagal karena tidak menggunakan token di Header saat mengakses endpoint ini
 
 GET /api/dosen (Read All)
 
-![alt text](ss\4_image.png)
+![alt text](ss/4_image.png)
 
 Berhasil mendapatkan data karena proses autentifikasi berhasil menggunakan token dari hasil login yang kemudian dimasukkan ke header
 
@@ -97,7 +89,7 @@ Berhasil mendapatkan data karena proses autentifikasi berhasil menggunakan token
 
 POST /api/mata_kuliah
 
-![alt text](ss\5_image.png)
+![alt text](ss/5_image.png)
 
 Hasil ini juga berhasil karena prosesnya mengikuti autentifikasi seperti poin 4.
 
