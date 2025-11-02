@@ -6,6 +6,12 @@ Ini adalah proyek REST API sederhana yang dibuat menggunakan Express.js dan Post
 
 RESTful API: Menyediakan endpoint API untuk mengelola data dosen dan mata kuliah.
 
+Autentikasi & Otorisasi:
+
+    Menggunakan JWT (JSON Web Token) untuk melindungi endpoint CRUD.
+
+    Menggunakan bcrypt untuk hashing password dosen saat registrasi dan verifikasi saat login.
+
 Arsitektur MVC: Kode diorganisir dengan jelas menggunakan pola Model-View-Controller.
 
 Relasi Database: Mengimplementasikan relasi One-to-Many (satu Dosen bisa mengajar banyak Mata Kuliah).
